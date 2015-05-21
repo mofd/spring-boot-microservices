@@ -1,0 +1,10 @@
+application:
+  name: EurekaServerPear1
+
+server:
+  port: 8585
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${defaultZoneHostWithPort}/eureka/
