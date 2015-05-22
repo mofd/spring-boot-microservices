@@ -1,5 +1,8 @@
 package org.example.microservices.currenttimems;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -23,8 +26,14 @@ import java.util.Date;
 @EnableEurekaClient
 public class CurrentTimeMs {
 
+	private static final Log LOGGER = LogFactory.getLog(CurrentTimeMs.class);
+
+	@Value("${application.name}")
+	private String currentInstance;
+
 	@RequestMapping("/")
 	public String currentTime() {
+		LOGGER.info("currentTime on instance: " + currentInstance);
 		return String.valueOf(new Date());
 	}
 
