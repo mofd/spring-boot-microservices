@@ -3,6 +3,7 @@ package org.example.microservices.currenttimeapp.web;
 import org.example.microservices.currenttimeapp.service.CurrentTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,8 +27,8 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String currentTime(ModelAndView modelAndView) {
-		modelAndView.addObject("timestamp", currentTimeService.currentTime());
+	public String currentTime(Model model) {
+		model.addAttribute("timestamp", currentTimeService.currentTime());
 		return "currentTime";
 	}
 }

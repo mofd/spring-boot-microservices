@@ -10,6 +10,7 @@
         <version>1.0.1.RELEASE</version>
     </parent>
     <properties>
+        <java.version>1.8</java.version>
 		<spring-cloud-starter-version>1.0.1.RELEASE</spring-cloud-starter-version>
     </properties>
     <modelVersion>4.0.0</modelVersion>
