@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author steuer.konstantin <br>
  * copyright (C) 2015, SWM Services GmbH
  */
-@FeignClient("CurrentTime")
+@FeignClient("CurrentTimeMs")
 public interface CurrentTimeService {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
