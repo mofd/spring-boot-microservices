@@ -51,7 +51,8 @@
 
     <modules>
         <module>fault-tolerance</module>
-        <module>service-location</module>
+        <module>eureka-server</module>
+        <module>config-server</module>
         <module>current-time-ms</module>
         <module>current-time-app</module>
         <!--
