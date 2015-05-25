@@ -40,7 +40,7 @@ public class AccessCurrentTimeMsTest {
 	@Test
 	public void testDiscoveryClient() throws Exception {
 		LOGGER.info(discoveryClient.description());
-		List<ServiceInstance> serviceInstances = discoveryClient.getInstances("CurrentTime");
+		List<ServiceInstance> serviceInstances = discoveryClient.getInstances("CurrentTimeMs");
 		assertFalse(serviceInstances.isEmpty());
 		serviceInstances.forEach((ServiceInstance s) -> {
 			LOGGER.info(s.getServiceId() + " Port: " + s.getPort());

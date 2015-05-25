@@ -28,7 +28,8 @@ public class MainController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String currentTime(Model model) {
-		model.addAttribute("timestamp", currentTimeService.currentTime());
+		String currentTime = currentTimeService.currentTime();
+		model.addAttribute("timestamp", currentTime);
 		return "currentTime";
 	}
 }
