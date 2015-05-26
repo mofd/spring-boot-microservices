@@ -56,10 +56,7 @@
         <module>zuul-server</module>
         <module>current-time-ms</module>
         <module>current-time-app</module>
-        <!--
-        <module>routing</module>
-        <module>to-upper-case-time-app</module>
-        <module>to-upper-case-time-ms</module>
-        -->
+        <module>to-upper-case-ms</module>
+        <module>to-upper-case-app</module>
     </modules>
 </project>
