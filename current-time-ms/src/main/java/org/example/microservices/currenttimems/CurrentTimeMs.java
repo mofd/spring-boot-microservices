@@ -27,7 +27,7 @@ public class CurrentTimeMs {
 
 	private static final Log LOGGER = LogFactory.getLog(CurrentTimeMs.class);
 
-	@Value("${application.name}")
+	@Value("${info.name}")
 	private String currentInstance;
 
     @Autowired
