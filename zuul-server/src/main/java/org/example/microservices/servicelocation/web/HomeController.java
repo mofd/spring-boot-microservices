@@ -20,7 +20,12 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
-    public String homePage() {
+    public String indexPage() {
+        return "home";
+    }
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String homePath() {
         return "home";
     }
 }
