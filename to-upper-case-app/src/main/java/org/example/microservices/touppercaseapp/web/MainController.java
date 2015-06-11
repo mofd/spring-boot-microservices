@@ -52,4 +52,10 @@ public class MainController {
 
         return "toUpperCase";
     }
+
+
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	public String error() {
+		return "error";
+	}
 }
