@@ -1,6 +1,8 @@
 package org.example.microservices.touppercaseapp.web;
 
+import org.example.microservices.touppercaseapp.service.CurrentTimeHystrixFacade;
 import org.example.microservices.touppercaseapp.service.CurrentTimeService;
+import org.example.microservices.touppercaseapp.service.ToUpperCaseHystrixService;
 import org.example.microservices.touppercaseapp.service.ToUpperCaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,10 +28,10 @@ public class MainController {
 
     public static final String ERROR = "-- ERROR --";
     @Autowired
-    private CurrentTimeService currentTimeService;
+    private CurrentTimeHystrixFacade currentTimeService;
 
     @Autowired
-    private ToUpperCaseService toUpperCaseService;
+    private ToUpperCaseHystrixService toUpperCaseService;
 
     @ExceptionHandler
     public String toUpperCaseFails(Exception e) {
@@ -40,7 +42,7 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String toUpperCase(@RequestParam("toUpperCase") String toUpperCase, Model model) throws Exception {
         try {
-            model.addAttribute("timestamp", currentTimeService.currentTime());
+            model.addAttribute("timestamp", currentTimeService.getCurrentTime());
         } catch (Exception e) {
             model.addAttribute("timestamp", ERROR);
         }

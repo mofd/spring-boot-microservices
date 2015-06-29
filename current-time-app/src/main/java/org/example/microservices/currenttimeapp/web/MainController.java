@@ -2,6 +2,7 @@ package org.example.microservices.currenttimeapp.web;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.example.microservices.currenttimeapp.service.CurrentTimeHystrixFacade;
 import org.example.microservices.currenttimeapp.service.CurrentTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class MainController {
 	private static final String ERROR_PAGE = "currentTimeFails";
 
 	@Autowired
-	private CurrentTimeService currentTimeService;
+	private CurrentTimeHystrixFacade currentTimeService;
 
 	@ExceptionHandler
 	public String currentTimeFails(Exception e) {
@@ -36,7 +37,7 @@ public class MainController {
 	public String currentTime(Model model) {
 		String currentTime = null;
 		try {
-			currentTime = currentTimeService.currentTime();
+			currentTime = currentTimeService.getCurrentTime();
 		} catch (Exception e) {
 			LOGGER.error(e);
 			return ERROR_PAGE;
